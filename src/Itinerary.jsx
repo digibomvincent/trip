@@ -3,10 +3,12 @@ import Papa from 'papaparse'
 import {
   CalendarDays,
   MapPin,
-  Train,
   Hotel,
   AlertTriangle,
   LoaderCircle,
+  ChevronDown,
+  ChevronUp,
+  MessageSquare,
 } from 'lucide-react'
 
 const CSV_URL =
@@ -39,6 +41,7 @@ function parseCsvToItems(csvText) {
       const stayStation = normalizeText(row['stay station'])
       const hotel = normalizeText(row.hotel)
       const area = normalizeText(row.area)
+      const notes = normalizeText(row.備註 ?? row.notes ?? '')
 
       const resolvedDate = date || lastDate
       if (resolvedDate) lastDate = resolvedDate
@@ -50,9 +53,10 @@ function parseCsvToItems(csvText) {
         stayStation,
         hotel,
         area,
+        notes,
       }
     })
-    .filter((item) => item.date && (item.time || item.spot || item.stayStation || item.hotel || item.area))
+    .filter((item) => item.date && (item.time || item.spot || item.stayStation || item.hotel || item.area || item.notes))
 }
 
 function splitLines(text) {
@@ -68,7 +72,17 @@ export default function Itinerary() {
   const [items, setItems] = useState([])
   const [activeDate, setActiveDate] = useState('')
   const [status, setStatus] = useState({ type: 'loading', message: '' })
+  const [notesOpenKeys, setNotesOpenKeys] = useState(() => new Set())
   const tabsRef = useRef(null)
+
+  const toggleNotes = (key) => {
+    setNotesOpenKeys((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
 
   const reload = async () => {
     setStatus({ type: 'loading', message: '' })
@@ -135,8 +149,8 @@ export default function Itinerary() {
   }, [activeDate])
 
   return (
-    <div className="mx-auto w-full max-w-md text-slate-900">
-      <div className="rounded-3xl bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 px-4 pb-10 pt-5 shadow-sm">
+    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 text-slate-900">
+      <div className="mx-auto w-full max-w-md px-4 pb-10 pt-5">
         <header className="mb-4">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-amber-900 ring-1 ring-amber-200 backdrop-blur">
             <CalendarDays className="h-4 w-4" />
@@ -211,23 +225,21 @@ export default function Itinerary() {
 
         {status.type === 'ready' && dates.length > 0 && (
           <section aria-label="itinerary list" className="relative">
-            <div className="mb-3 flex items-center justify-between">
-              <div className="text-sm font-semibold text-slate-900">{activeDate} 行程</div>
-              <div className="text-xs text-slate-500">{dayItems.length} 筆</div>
-            </div>
-
             <div className="relative pl-7">
               <div className="pointer-events-none absolute left-3 top-0 h-full w-px bg-amber-200" />
 
               <div className="space-y-3">
                 {dayItems.map((it, idx) => {
                   const spotLines = splitLines(it.spot)
-                  const stationLines = splitLines(it.stayStation)
+                  const notesLines = splitLines(it.notes)
+                  const hasNotes = notesLines.length > 0
                   const hasMeta = it.area || it.time
+                  const cardKey = `${it.date}-${idx}-${it.time}-${it.spot}`
+                  const notesOpen = notesOpenKeys.has(cardKey)
 
                   return (
                     <article
-                      key={`${it.date}-${idx}-${it.time}-${it.spot}`}
+                      key={cardKey}
                       className="relative rounded-2xl bg-white p-4 shadow-sm ring-1 ring-amber-100"
                     >
                       <div className="absolute left-2 top-5 h-3 w-3 rounded-full bg-amber-700 ring-4 ring-amber-100" />
@@ -255,34 +267,60 @@ export default function Itinerary() {
                         )}
                       </div>
 
-                      {spotLines.length > 0 && (
-                        <div className="mt-3">
-                          <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                            <MapPin className="h-4 w-4 text-amber-800" />
-                            行程
+                      <div className="mt-3 flex gap-3">
+                        {spotLines.length > 0 && (
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                              <MapPin className="h-4 w-4 shrink-0 text-amber-800" />
+                              行程
+                            </div>
+                            <ul className="mt-2 space-y-1 text-sm text-slate-900">
+                              {spotLines.map((line, i) => (
+                                <li key={i} className="flex gap-2">
+                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-700" />
+                                  <span className="min-w-0 break-words">{line}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                          <ul className="mt-2 space-y-1 text-sm text-slate-900">
-                            {spotLines.map((line, i) => (
-                              <li key={i} className="flex gap-2">
-                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-700" />
-                                <span className="min-w-0 break-words">{line}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                        )}
 
-                      {stationLines.length > 0 && (
-                        <div className="mt-4 rounded-xl bg-amber-50/70 p-3 ring-1 ring-amber-200">
-                          <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                            <Train className="h-4 w-4 text-amber-800" />
-                            Stay station
-                          </div>
-                          <div className="mt-1 whitespace-pre-line text-sm text-slate-900">
-                            {it.stayStation}
-                          </div>
-                        </div>
-                      )}
+                        {hasNotes && (
+                          <>
+                            {spotLines.length > 0 && (
+                              <div className="w-px shrink-0 bg-amber-200" aria-hidden />
+                            )}
+                            <div className="min-w-0 flex-1">
+                              <button
+                                type="button"
+                                onClick={() => toggleNotes(cardKey)}
+                                className="flex w-full items-center justify-between gap-2 rounded-lg py-1 text-left text-xs font-semibold text-slate-700 hover:bg-amber-50"
+                                aria-expanded={notesOpen}
+                              >
+                                <span className="flex items-center gap-2">
+                                  <MessageSquare className="h-4 w-4 shrink-0 text-amber-700" />
+                                  備註
+                                </span>
+                                {notesOpen ? (
+                                  <ChevronUp className="h-4 w-4 shrink-0 text-slate-500" />
+                                ) : (
+                                  <ChevronDown className="h-4 w-4 shrink-0 text-slate-500" />
+                                )}
+                              </button>
+                              {notesOpen && (
+                                <ul className="mt-2 space-y-1 text-sm text-slate-900">
+                                  {notesLines.map((line, i) => (
+                                    <li key={i} className="flex gap-2">
+                                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-700" />
+                                      <span className="min-w-0 break-words">{line}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          </>
+                        )}
+                      </div>
                     </article>
                   )
                 })}
@@ -312,10 +350,6 @@ export default function Itinerary() {
             </div>
           </section>
         )}
-
-        <footer className="mt-8 text-center text-xs text-slate-500">
-          資料來源：Google Sheets（CSV）・自動解析與換行顯示
-        </footer>
       </div>
     </div>
   )
