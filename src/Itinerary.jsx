@@ -149,7 +149,12 @@ export default function Itinerary() {
   }, [activeDate])
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 text-slate-900">
+    <div className="relative min-h-screen w-full bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 text-slate-900">
+      <img
+        src="/orla.png"
+        alt="Orla"
+        className="absolute right-0 top-0 h-44 w-auto object-contain object-top md:h-52"
+      />
       <div className="mx-auto w-full max-w-md px-4 pb-10 pt-5">
         <header className="mb-4">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-amber-900 ring-1 ring-amber-200 backdrop-blur">
@@ -157,7 +162,7 @@ export default function Itinerary() {
             旅遊行程 Itinerary
           </div>
           <h1 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-slate-900">
-            大阪・京都・琵琶湖・奈良
+            京阪滑雪gogogo
           </h1>
           <p className="mt-1 text-sm text-slate-600">點選日期，查看當天上午/下午安排與住宿。</p>
         </header>
