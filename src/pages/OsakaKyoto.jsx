@@ -84,57 +84,57 @@ const ATTRACTIONS = [
     name: '環球影城',
     type: '遊樂園',
     score: 5,
-    review: '任天堂世界超震撼，哈利波特區氛圍絕佳，建議提早搶預約！',
-    price: '¥9,400 起',
+    review: '還好有買快通，省掉排隊時間，才能好好拍照買東西。',
+    price: 'NT$1799+NT$3370 (門票＋快速通關)',
   },
   {
     name: '伏見稻荷',
     type: '神社',
     score: 4.5,
-    review: '千本鳥居壯觀無比，早晨人少最美，爬到頂需要約 2 小時。',
+    review: '園區超大，要爬升一段才會到千本鳥居，可以安排2-4小時，前段街道有吉伊卡哇專賣店！',
     price: '免費',
   },
   {
     name: '清水寺',
     type: '寺廟',
     score: 5,
-    review: '清水舞台視野絕佳，周邊二三年坂逛起來很有感覺。',
-    price: '¥500',
+    review: '木製古蹟非常壯觀，記得挑戰金剛杵，柯南打卡點可以看夕陽和京都塔！',
+    price: 'NT$100',
   },
   {
     name: '嵐山',
     type: '自然・景點',
     score: 3.5,
-    review: '竹林小徑、天龍寺和渡月橋組合是最完美的京都半日遊。',
-    price: '天龍寺 ¥500',
+    review: '去的時候沒有楓葉和小火車，小店別買比市區貴，竹林普通台灣很常見，常寂光寺前方有livecam可以看到自己！',
+    price: '免費',
   },
   {
     name: '通天閣',
     type: '地標',
     score: 4,
-    review: '大阪老派地標，周邊新世界串炸街非常好逛。',
-    price: '¥800',
+    review: '滑梯不恐怖，可以叫大聲一點嚇別人，介紹通天閣和跑跑人的歷史滿有趣，可以排3小時，DM有紙模型記得拿！',
+    price: 'NT$500（室內外展望台＋滑梯）',
   },
   {
     name: '道頓堀',
     type: '美食・逛街',
     score: 4.5,
-    review: '大阪必來的霓虹美食街，晚上最熱鬧，章魚燒和蟹道樂都不能錯過。',
-    price: '免費入場',
+    review: '唐吉訶德摩天輪不錯，船很普通，美式街區算特別，可以吃吃看冰狗',
+    price: '免費',
   },
   {
     name: 'LIGHT CYCLES KYOTO',
     type: '藝術裝置',
     score: 5,
-    review: '沉浸式光影體驗，晚上去效果最震撼，票要提前預訂。',
-    price: '¥2,000',
+    review: '沉浸式光影體驗，現場超震撼，京都晚上值得排！',
+    price: 'NT$549',
   },
   {
     name: '和服體驗',
     type: '體驗',
     score: 4.5,
-    review: '穿著和服逛伏見稻荷超有感，mocomoco 服務很貼心，選項豐富。',
-    price: '¥3,500 起',
+    review: '提前在MOCOMOCO預約，可以在不同分店租還（清水寺、嵐山都有），規劃好的話能拍好幾個景點！',
+    price: 'NT$1348（含髮型＋配飾）',
   },
 ]
 
@@ -348,6 +348,11 @@ export default function OsakaKyoto() {
         {/* ── Cover ──────────────────────────────────────────────── */}
         <section className="relative py-10 text-center">
           <div className="absolute inset-0 -z-10 rounded-b-3xl bg-gradient-to-br from-[#b8d2df] to-[#5a8fa3] opacity-10" />
+          <img
+            src="/logorb.png"
+            alt="logo"
+            className="mx-auto mb-4 h-20 w-auto object-contain"
+          />
           <div className="inline-flex items-center gap-1.5 rounded-full bg-[#b8d2df]/40 px-3 py-1 text-xs font-semibold text-[#5a8fa3] ring-1 ring-[#b8d2df]">
             <Plane className="h-3.5 w-3.5" />
             2025 冬・日本關西
@@ -447,7 +452,7 @@ export default function OsakaKyoto() {
                 <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
                 <h2 className="text-xl font-bold text-slate-800">景點評價</h2>
               </div>
-              <p className="mb-4 text-sm text-slate-500">精選 8 個必訪景點的第一手評價</p>
+              <p className="mb-4 text-sm text-slate-500">精選 8 個熱門景點評價</p>
               <div className="space-y-3">
                 {ATTRACTIONS.map((a) => (
                   <AttractionCard key={a.name} {...a} />
