@@ -338,7 +338,7 @@ function UsefulLinksTab() {
 // ─── Main Page ───────────────────────────────────────────────────────────────
 
 export default function OsakaKyoto() {
-  const [activeTab, setActiveTab] = useState('itinerary')
+  const [activeTab, setActiveTab] = useState('links')
   const [itineraryOpen, setItineraryOpen] = useState(false)
 
   return (
