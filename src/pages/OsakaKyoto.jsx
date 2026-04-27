@@ -563,7 +563,7 @@ export default function OsakaKyoto() {
                 更多旅遊攻略都在 IG
                 <ArrowDown className="h-5 w-5" />
               </div>
-              <p className="mt-1 text-sm text-[#b8d2df]">行程規劃・景點推薦・住宿心得</p>
+              <p className="mt-1 text-sm text-[#b8d2df]">小資旅遊・有趣實用攻略</p>
               <a
                 href="https://www.instagram.com/perper_17travel/"
                 target="_blank"
@@ -580,7 +580,7 @@ export default function OsakaKyoto() {
         {activeTab === 'links' && <UsefulLinksTab />}
 
         <footer className="mt-8 text-center text-xs text-slate-400">
-          © 2025 perper_17travel · 版權所有
+          © perper_17travel · 版權所有
         </footer>
       </div>
     </div>
