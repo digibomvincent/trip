@@ -181,6 +181,30 @@ const ATTRACTIONS = [
       { url: 'https://www.instagram.com/reel/DWdjui1gSRh/?igsh=b3huYXM1ODVrcXRr', label: '和服體驗竟然是這樣！' },
     ],
   },
+  {
+    name: '琵琶湖山谷滑雪場',
+    type: '滑雪・風景',
+    area: '滋賀',
+    score: 5,
+    duration: '全天',
+    review: '離京都40分鐘車程的志賀站，上山後可以眺望日本第一大湖，另一邊可以看山，風景很美，但新手綠線只有兩條QQ',
+    price: 'NT$1360＋NT$2100（纜車票＋雪具全套）',
+    reels: [
+      { url: 'https://www.instagram.com/reel/DWRH-yLAY7p/?igsh=MzRlODBiNWFlZA==', label: '不滑雪也值得來！' },
+    ],
+  },
+  {
+    name: '奈良',
+    type: '動物',
+    area: '奈良',
+    score: 4.5,
+    duration: '半天',
+    review: '鹿真的很可愛，但有些會推人或咬衣服，小朋友要小心。地上也很多屎，有潔癖的需考慮哈哈！',
+    price: '免費',
+    reels: [
+      { url: 'https://www.instagram.com/reel/DVgL-1NAcf6/?igsh=MzRlODBiNWFlZA==', label: '我以為的奈良' },
+    ],
+  },
  
  
 ]
@@ -445,7 +469,7 @@ export default function OsakaKyoto() {
             京阪奈良 7 日行程
           </h1>
           <p className="mt-2 text-base text-slate-600">
-            環球、神社、滑雪、逛街全都玩！
+            環球、神社、和服、逛街全都玩！
           </p>
           <div className="mt-3 flex justify-center gap-2 text-sm text-slate-400">
             <span>🏯 大阪</span>
@@ -560,7 +584,7 @@ export default function OsakaKyoto() {
             {/* IG footer */}
             <section className="rounded-2xl bg-[#5a8fa3] px-6 py-8 text-center text-white shadow-lg shadow-[#b8d2df]">
               <div className="flex items-center justify-center gap-2 text-lg font-bold">
-                更多旅遊攻略都在 IG
+                更多旅遊分享都在 IG
                 <ArrowDown className="h-5 w-5" />
               </div>
               <p className="mt-1 text-sm text-[#b8d2df]">小資旅遊・有趣實用攻略</p>
