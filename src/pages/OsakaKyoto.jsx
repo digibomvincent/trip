@@ -25,7 +25,7 @@ import {
 const DAYS = [
   {
     day: 1,
-    date: '2/24',
+    date: '2/24 (二)',
     area: '大阪',
     morning: ['關西機場', '松葉総本店（炸串）'],
     afternoon: ['HEP FIVE', '梅田空中庭園', '燒肉力丸'],
@@ -33,7 +33,7 @@ const DAYS = [
   },
   {
     day: 2,
-    date: '2/25',
+    date: '2/25 (三)',
     area: '大阪・環球影城',
     morning: ['環球影城（任天堂、哈利波特）'],
     afternoon: ['侏羅紀', '小小兵', '任天堂（庫巴挑戰、耀西冒險）', 'Shake Shack'],
@@ -41,7 +41,7 @@ const DAYS = [
   },
   {
     day: 3,
-    date: '2/26',
+    date: '2/26 (四)',
     area: '京都',
     morning: ['和服體驗 mocomoco', '伏見稻荷'],
     afternoon: ['二三年坂', '伊藤軒/SOU・SOU', '清水寺', 'LIGHT CYCLES KYOTO'],
@@ -49,7 +49,7 @@ const DAYS = [
   },
   {
     day: 4,
-    date: '2/27',
+    date: '2/27 (五)',
     area: '大津・滑雪',
     morning: ['滑雪（志賀站）'],
     afternoon: ['滑雪（志賀站）', '宮川豚衛門（晚餐）'],
@@ -57,7 +57,7 @@ const DAYS = [
   },
   {
     day: 5,
-    date: '2/28',
+    date: '2/28 (六)',
     area: '京都',
     morning: ['金閣寺', 'Sarasa Nishijin'],
     afternoon: ['嵐山（天龍寺、竹林小徑、常寂光寺）', '錦市場', '祇園花見小路、鴨川', 'Kyo ha Matcha'],
@@ -65,7 +65,7 @@ const DAYS = [
   },
   {
     day: 6,
-    date: '3/1',
+    date: '3/1 (日)',
     area: '奈良 + 大阪',
     morning: ['奈良公園', '東大寺', '春日大社'],
     afternoon: ['通天閣', '心齋橋', '道頓堀', '玄品河豚 法善寺'],
@@ -73,7 +73,7 @@ const DAYS = [
   },
   {
     day: 7,
-    date: '3/2',
+    date: '3/2 (一)',
     area: '大阪',
     morning: ['難波八阪神社', '黑門市場'],
     afternoon: ['Namba City'],
@@ -154,6 +154,7 @@ const ATTRACTIONS = [
     reels: [
       { url: 'https://www.instagram.com/reel/DVkYx1cAeNk/?igsh=OHZnbWlxbGc0Nmxt', label: '口袋名單｜玄品河豚' },
       { url: 'https://www.instagram.com/reel/DVbP67QARDB/?igsh=MzRlODBiNWFlZA==', label: '道頓堀摩天輪推嗎！？' },
+      { url: 'https://www.instagram.com/reel/DWl7YgAAXR7/?igsh=MzRlODBiNWFlZA==', label: '20元的生魚壽司！' },
     ],
   },
   {
