@@ -535,7 +535,7 @@ export default function OsakaKyoto() {
               <div className="mb-2 flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
-                  <h2 className="text-xl font-bold text-slate-800">景點評價</h2>
+                  <h2 className="text-xl font-bold text-slate-800">精選熱門景點</h2>
                 </div>
                 <select
                   value={areaFilter}
@@ -547,7 +547,7 @@ export default function OsakaKyoto() {
                   <option value="京都">京都</option>
                 </select>
               </div>
-              <p className="mb-4 text-sm text-slate-500">精選熱門景點真實評價！</p>
+              <p className="mb-4 text-sm text-slate-500">實際遊玩心得！</p>
               <div className="space-y-3">
                 {ATTRACTIONS
                   .filter((a) => areaFilter === '全部' || a.area === areaFilter)
