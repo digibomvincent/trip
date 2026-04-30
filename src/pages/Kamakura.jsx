@@ -15,6 +15,7 @@ import {
   Shuffle,
   ChevronDown,
   ChevronUp,
+  X,
 } from 'lucide-react'
 
 // ─── Data ──────────────────────────────────────────────────────────────────
@@ -282,6 +283,7 @@ function IgFooter() {
 
 export default function Kamakura() {
   const [activeTab, setActiveTab] = useState('itinerary')
+  const [mapOpen, setMapOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-[#faf7f4] text-slate-900">
@@ -303,7 +305,7 @@ export default function Kamakura() {
             浪漫鎌倉一日遊
           </h1>
           <p className="mt-2 text-base text-slate-600">
-            灌籃高手、孤獨搖滾、夕陽海景全制霸！
+            灌籃高手、孤獨搖滾、夕陽海景！
           </p>
           <div className="mt-3 flex justify-center gap-2 text-sm text-slate-400">
             <span>🏄 鎌倉</span>
@@ -374,14 +376,40 @@ export default function Kamakura() {
 
             {/* Map image */}
             <section className="mb-8">
-              <div className="overflow-hidden rounded-2xl ring-2 ring-[#b8d2df] shadow-sm">
+              <button
+                type="button"
+                onClick={() => setMapOpen(true)}
+                className="w-full overflow-hidden rounded-2xl ring-2 ring-[#b8d2df] shadow-sm active:scale-[0.99] transition-transform"
+              >
                 <img
                   src="/map.png"
                   alt="鎌倉路線地圖"
                   className="w-full object-cover"
                 />
-              </div>
+              </button>
             </section>
+
+            {/* Map lightbox */}
+            {mapOpen && (
+              <div
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                onClick={() => setMapOpen(false)}
+              >
+                <button
+                  type="button"
+                  onClick={() => setMapOpen(false)}
+                  className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur active:scale-95 transition-transform"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+                <img
+                  src="/map.png"
+                  alt="鎌倉路線地圖"
+                  className="max-h-screen max-w-full object-contain"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
+            )}
 
             <IgFooter />
           </>
