@@ -119,6 +119,26 @@ const ATTRACTIONS = [
     price: 'NT$100（展望台）',
     reels: [],
   },
+  {
+    name: '鎌倉大佛殿高德院',
+    type: '佛像',
+    area: '鎌倉',
+    score: '?',
+    duration: '1 小時',
+    review: '時間不夠沒去到，可以進到大佛身體裡，有機會再去',
+    price: 'NT$60',
+    reels: [],
+  },
+  {
+    name: '錢洗弁財天宇賀福神社',
+    type: '神社',
+    area: '鎌倉',
+    score: '?',
+    duration: '1 小時',
+    review: '可以真的把錢拿來洗，會有財運，但不太順路就沒去了',
+    price: '免費',
+    reels: [],
+  },
  
 ]
 
