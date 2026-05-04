@@ -37,6 +37,13 @@ export default function IgFollowPopup() {
           <X className="h-4 w-4" />
         </button>
 
+        {/* 圖片 */}
+        <img
+          src="/punch.jpg"
+          alt=""
+          className="mb-4 w-full rounded-2xl object-cover"
+        />
+
         {/* 內容 */}
         <div className="text-center">
           <p className="text-lg font-bold text-slate-800">
