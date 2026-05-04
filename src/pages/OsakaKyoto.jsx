@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import IgFollowPopup from '../components/IgFollowPopup.jsx'
 import {
   MapPin,
   ChevronDown,
@@ -451,6 +452,7 @@ export default function OsakaKyoto() {
 
   return (
     <div className="min-h-screen bg-[#faf7f4] text-slate-900">
+      <IgFollowPopup />
       <div className="mx-auto w-full max-w-[480px] px-4 pb-16">
 
         {/* ── Cover ──────────────────────────────────────────────── */}
