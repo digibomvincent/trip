@@ -458,11 +458,18 @@ export default function OsakaKyoto() {
         {/* ── Cover ──────────────────────────────────────────────── */}
         <section className="relative py-10 text-center">
           <div className="absolute inset-0 -z-10 rounded-b-3xl bg-gradient-to-br from-[#b8d2df] to-[#5a8fa3] opacity-10" />
-          <img
-            src="/logorb.png"
-            alt="logo"
-            className="mx-auto mb-4 h-20 w-auto object-contain"
-          />
+          <div className="mb-4 flex items-center justify-center gap-4">
+            <img
+              src="/ig.jpg"
+              alt="perper"
+              className="h-20 w-20 rounded-full object-cover ring-2 ring-[#b8d2df]"
+            />
+            <img
+              src="/logorb.png"
+              alt="logo"
+              className="h-20 w-auto object-contain"
+            />
+          </div>
           <div className="inline-flex items-center gap-1.5 rounded-full bg-[#b8d2df]/40 px-3 py-1 text-xs font-semibold text-[#5a8fa3] ring-1 ring-[#b8d2df]">
             <Plane className="h-3.5 w-3.5" />
             2026 冬・日本關西
@@ -584,21 +591,30 @@ export default function OsakaKyoto() {
             </section>
 
             {/* IG footer */}
-            <section className="rounded-2xl bg-[#5a8fa3] px-6 py-8 text-center text-white shadow-lg shadow-[#b8d2df]">
-              <div className="flex items-center justify-center gap-2 text-lg font-bold">
-                更多旅遊分享都在 IG
-                <ArrowDown className="h-5 w-5" />
+            <section className="rounded-2xl bg-[#5a8fa3] px-6 py-6 text-white shadow-lg shadow-[#b8d2df]">
+              <div className="flex items-center justify-center gap-4">
+                <img
+                  src="/ig.jpg"
+                  alt="perper"
+                  className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-white/40"
+                />
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5 text-base font-bold">
+                    更多旅遊分享都在 IG
+                    <ArrowDown className="h-4 w-4" />
+                  </div>
+                  <p className="mt-0.5 text-xs text-[#b8d2df]">小資旅遊・有趣實用攻略</p>
+                  <a
+                    href="https://www.instagram.com/perper_17travel/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-[#5a8fa3] shadow transition-transform active:scale-95"
+                  >
+                    <Instagram className="h-4 w-4" />
+                    @perper_17travel
+                  </a>
+                </div>
               </div>
-              <p className="mt-1 text-sm text-[#b8d2df]">小資旅遊・有趣實用攻略</p>
-              <a
-                href="https://www.instagram.com/perper_17travel/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[#5a8fa3] shadow transition-transform active:scale-95"
-              >
-                <Instagram className="h-4 w-4" />
-                @perper_17travel
-              </a>
             </section>
           </>
         )}
