@@ -464,17 +464,19 @@ export default function OsakaKyoto() {
               alt="perper"
               className="h-20 w-20 rounded-full object-cover ring-2 ring-[#b8d2df]"
             />
-            <img
-              src="/logorb.png"
-              alt="logo"
-              className="h-20 w-auto object-contain"
-            />
+            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#5a8fa3]">
+              <img
+                src="/logorb.png"
+                alt="logo"
+                className="h-16 w-16 object-contain"
+              />
+            </div>
           </div>
           <div className="inline-flex items-center gap-1.5 rounded-full bg-[#b8d2df]/40 px-3 py-1 text-xs font-semibold text-[#5a8fa3] ring-1 ring-[#b8d2df]">
             <Plane className="h-3.5 w-3.5" />
             2026 冬・日本關西
           </div>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+          <h1 className="mt-4 text-3xl font-bold tracking-widest text-slate-900 [font-family:'Shippori_Mincho',serif] [text-shadow:0_1px_6px_rgba(0,0,0,0.15),0_0_1px_rgba(0,0,0,0.08)]">
             京阪奈良 7 日行程
           </h1>
           <p className="mt-2 text-base text-slate-600">
