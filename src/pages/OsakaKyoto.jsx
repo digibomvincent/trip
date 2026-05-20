@@ -19,6 +19,7 @@ import {
   Link2,
   Clock,
   Play,
+  MousePointerClick,
 } from 'lucide-react'
 
 // ─── Data ──────────────────────────────────────────────────────────────────
@@ -68,8 +69,8 @@ const DAYS = [
     day: 6,
     date: '3/1 (日)',
     area: '奈良 + 大阪',
-    morning: ['奈良公園', '東大寺', '春日大社'],
-    afternoon: ['通天閣', '心齋橋', '道頓堀', '玄品河豚 法善寺'],
+    morning: [{ text: '奈良公園', img: '/map_nara.jpg', imgLabel: '地圖' }, '東大寺', '春日大社'],
+    afternoon: [{ text: '通天閣', img: '/map_slide.jpg', imgLabel: '樓層圖' }, '心齋橋', '道頓堀', '玄品河豚 法善寺'],
     hotel: 'Tabist Sakuragawa River Side Hotel',
   },
   {
@@ -254,7 +255,7 @@ const TABS = [
 
 // ─── Sub-components ─────────────────────────────────────────────────────────
 
-function DayCard({ day, date, area, morning, afternoon, hotel }) {
+function DayCard({ day, date, area, morning, afternoon, hotel, onImgClick }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-[#b8d2df] shadow-sm">
       <div className="flex items-center gap-3 px-4 py-3.5">
@@ -272,8 +273,8 @@ function DayCard({ day, date, area, morning, afternoon, hotel }) {
         </div>
       </div>
       <div className="border-t border-[#b8d2df]/40 px-4 pb-4 pt-3 space-y-3">
-        <TimeBlock label="上午" Icon={Sunrise} items={morning} />
-        <TimeBlock label="下午" Icon={Sun} items={afternoon} />
+        <TimeBlock label="上午" Icon={Sunrise} items={morning} onImgClick={onImgClick} />
+        <TimeBlock label="下午" Icon={Sun} items={afternoon} onImgClick={onImgClick} />
         {hotel ? (
           <div className="flex items-start gap-2 pt-1">
             <Hotel className="h-3.5 w-3.5 shrink-0 text-slate-400 mt-0.5" />
@@ -289,7 +290,7 @@ function DayCard({ day, date, area, morning, afternoon, hotel }) {
   )
 }
 
-function TimeBlock({ label, Icon, items }) {
+function TimeBlock({ label, Icon, items, onImgClick }) {
   if (!items || items.length === 0) return null
   return (
     <div>
@@ -298,12 +299,27 @@ function TimeBlock({ label, Icon, items }) {
         <span>{label}</span>
       </div>
       <ul className="space-y-1 pl-1">
-        {items.map((item, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b8d2df]" />
-            {item}
-          </li>
-        ))}
+        {items.map((item, i) => {
+          const text = typeof item === 'string' ? item : item.text
+          const img = typeof item === 'object' ? item.img : null
+          const imgLabel = typeof item === 'object' ? item.imgLabel : null
+          return (
+            <li key={i} className="flex items-center gap-2 text-sm text-slate-700">
+              <span className="mt-0 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b8d2df]" />
+              <span>{text}</span>
+              {img && (
+                <button
+                  type="button"
+                  onClick={() => onImgClick(img)}
+                  className="flex items-center gap-1 shrink-0 rounded-full bg-[#b8d2df]/30 px-2 py-0.5 text-xs font-medium text-[#5a8fa3] ring-1 ring-[#b8d2df] active:scale-95 transition-transform"
+                >
+                  <MousePointerClick className="h-3 w-3" />
+                  {imgLabel}
+                </button>
+              )}
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
@@ -449,9 +465,31 @@ export default function OsakaKyoto() {
   const [activeTab, setActiveTab] = useState('links')
   const [itineraryOpen, setItineraryOpen] = useState(false)
   const [areaFilter, setAreaFilter] = useState('全部')
+  const [lightboxImg, setLightboxImg] = useState(null)
 
   return (
     <div className="min-h-screen bg-[#faf7f4] text-slate-900">
+      {/* 燈箱 */}
+      {lightboxImg && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setLightboxImg(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setLightboxImg(null)}
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur hover:bg-white/30"
+          >
+            ✕
+          </button>
+          <img
+            src={lightboxImg}
+            alt="圖片"
+            className="max-h-[90vh] max-w-full rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
       <IgFollowPopup />
       <div className="mx-auto w-full max-w-[480px] px-4 pb-16">
 
@@ -559,7 +597,7 @@ export default function OsakaKyoto() {
               {itineraryOpen && (
                 <div className="mt-3 space-y-3">
                   {DAYS.map((d) => (
-                    <DayCard key={d.day} {...d} />
+                    <DayCard key={d.day} {...d} onImgClick={setLightboxImg} />
                   ))}
                 </div>
               )}
