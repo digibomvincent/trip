@@ -29,32 +29,32 @@ const DAYS = [
     day: 1,
     date: '5/3 (日)',
     area: '神戶',
-    morning: ['關西機場', '生田神社', '萌黃之館', '六甲牧場冰', '荷蘭館、奧地利館、丹麥館'],
-    afternoon: ['神戶布引香草園', '拉麵', '有馬溫泉玩具博物館', '肉餅', '金之湯', '銀之湯', '三宮站燒肉吃到飽'],
+    morning: ['關西機場', '生田神社', '萌黃之館', '神戶六甲牧場 冰淇淋', '北野異人館－荷蘭館、奧地利館、丹麥館'],
+    afternoon: ['神戶布引香草園', 'Ramen Taro', '有馬玩具博物館', '竹中肉店', '金之湯', '銀之湯', '肉丸 燒肉吃到飽'],
     hotel: '天満橋アバンティ',
   },
   {
     day: 2,
     date: '5/4 (一)',
     area: '姬路・神戶',
-    morning: ['吉野家', '姬路城', '鯛魚燒'],
-    afternoon: ['須磨浦山上樂園', '南京町商店街逛街', '彩餐廳神戶牛', '神戶港摩天輪'],
+    morning: ['吉野家', '姬路城', '鯛燒本舖 雕魚燒'],
+    afternoon: ['須磨浦山上樂園', '南京町商店街', '神戶牛排 彩餐廳', '神戶港摩天輪'],
     hotel: '天満橋アバンティ',
   },
   {
     day: 3,
     date: '5/5 (二)',
     area: '大阪',
-    morning: ['海遊館', '聖瑪利亞號', '天保山摩天輪'],
-    afternoon: ['燒肉', '宇宙塔觀景台', '生駒山樂園看夕陽', 'YAYOI彌生軒'],
+    morning: ['海遊館', '聖瑪麗亞號', '天保山大摩天輪'],
+    afternoon: ['焼肉の牛太', '宇宙塔展望台', '生駒山上遊樂園 看夕陽', 'YAYOI彌生軒'],
     hotel: '天満橋アバンティ',
   },
   {
     day: 4,
     date: '5/6 (三)',
     area: '大阪',
-    morning: ['大阪城（御座船、天守閣）', 'goodspoon 義大利麵披薩', 'TULLY\'S 奶茶'],
-    afternoon: ['讀賣電視台看柯南', '花博記念公園(鮮花競放館、風車之丘、國際庭園)', '加壽屋牛肉飯烏龍麵', '大阪長居植物園 teamLab'],
+    morning: ['大阪城（御座船、天守閣）', 'goodspoon 義大利麵披薩', "TULLY'S 奶茶"],
+    afternoon: ['讀賣電視台 看柯南', '花博記念公園（鮮花競放館、風車之丘、國際庭園）', '加壽屋 丼飯烏龍麵', '大阪長居植物園 teamLab'],
     hotel: '天満橋アバンティ',
   },
   {
@@ -287,19 +287,25 @@ export default function OsakaKobe() {
         {activeTab === 'itinerary' && (
           <>
             {/* Google Map CTA */}
-            <section className="mb-8">
+            <section className="mb-8 flex flex-col gap-3">
               <a
-                href="https://maps.app.goo.gl/placeholder"
+                href="https://maps.app.goo.gl/dr1Vadto731o4MQC7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#5a8fa3] px-6 py-4 text-lg font-bold text-white shadow-lg shadow-[#b8d2df] active:scale-[0.98] transition-transform"
               >
                 <MapPin className="h-6 w-6" />
-                打開景點地圖 📍
+                神戶 2 日景點地圖 📍
               </a>
-              <p className="mt-2 text-center text-xs text-slate-400">
-                所有景點已標記在 Google Maps 上
-              </p>
+              <a
+                href="https://maps.app.goo.gl/7xzDDzr5MPfG8ose8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#5a8fa3] px-6 py-4 text-lg font-bold text-white shadow-lg shadow-[#b8d2df] active:scale-[0.98] transition-transform"
+              >
+                <MapPin className="h-6 w-6" />
+                大阪 3 日景點地圖 📍
+              </a>
             </section>
 
             {/* 實用連結 toggle */}
