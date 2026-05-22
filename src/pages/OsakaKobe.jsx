@@ -252,7 +252,7 @@ export default function OsakaKobe() {
             大阪神戶 5 日行程
           </h1>
           <p className="mt-2 text-base text-slate-600">
-            美食、夜景、港都風情全制霸！
+            吃美食、看夜景、感受港都氛圍！
           </p>
           <div className="mt-3 flex justify-center gap-2 text-sm text-slate-400">
             <span>🏯 大阪</span>

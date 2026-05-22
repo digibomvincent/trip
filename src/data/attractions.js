@@ -56,7 +56,7 @@ export const ATTRACTIONS = [
     reels: [],
   },
   {
-    name: '有馬玩具博物館',
+    name: '有馬溫泉玩具博物館',
     type: '博物館',
     area: '有馬',
     score: 5,
@@ -118,7 +118,7 @@ export const ATTRACTIONS = [
     reels: [],
   },
   {
-    name: '聖瑪麗亞號',
+    name: '聖瑪利亞號',
     type: '觀光船',
     area: '大阪',
     score: 4,
@@ -128,17 +128,17 @@ export const ATTRACTIONS = [
     reels: [],
   },
   {
-    name: '天保山大摩天輪',
+    name: '天保山摩天輪',
     type: '地標',
     area: '大阪',
     score: 4,
     duration: '15 分鐘',
-    review: '搭乘一圈約15分鐘！私心建議選數量多、排隊快的一般車廂。升空後能俯瞰觀光郵輪、海遊館、天保山大橋與繁華大阪市景，白天視野好，隨手拍都超級清楚！',
+    review: '搭乘一圈約15分鐘！當天行程比較滿，我們沒有選全透明玻璃吊艙，而是選數量多、排隊快的一般車廂。升空後能俯瞰觀光郵輪、海遊館、天保山大橋與繁華大阪市景，白天視野好，隨手拍都超級清楚！',
     price: '¥1000｜約 NT$200',
     reels: [],
   },
   {
-    name: '宇宙塔展望台',
+    name: '宇宙塔',
     type: '地標',
     area: '大阪',
     score: 4,
@@ -148,7 +148,7 @@ export const ATTRACTIONS = [
     reels: [],
   },
   {
-    name: '生駒山上遊園園',
+    name: '生駒山上遊園地',
     type: '自然・景點',
     area: '奈良',
     score: 5,
@@ -173,7 +173,7 @@ export const ATTRACTIONS = [
     area: '大阪',
     score: 3.5,
     duration: '15 小時',
-    review: '柯南迷路過可朝聖！搜集6大名偵探柯南造景。除了能跟少年偵探團、柯南與小蘭雕像合影，還有Q版玻璃貼、黑衣人捉迷藏跟沉睡的毛利小五郎。二樓不能上去，但抬頭就能看到怪盜基德！',
+    review: '柯南迷路過可朝聖！搜集6大名偵探柯南造景。除了能跟少年偵探團、柯南與小蘭雕像合影，還有Q版玻璃貼、黑衣人捉迷藏跟沉睡的毛利小五郎。二樓不能上去，但抬頭就能看到怪盜基德！因為展出作品不多，適合順路再去拍就好！',
     price: '免費',
     reels: [],
   },
@@ -217,5 +217,6 @@ export const ATTRACTIONS = [
     price: '',
     reels: [],
   },
+ 
  
 ]
