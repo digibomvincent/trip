@@ -1,4 +1,4 @@
-import { MapPin, Clock, Play, Star } from 'lucide-react'
+import { MapPin, Clock, Play, Star, Ticket } from 'lucide-react'
 
 function StarIcon({ fill }) {
   if (fill === 'full') return <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
@@ -28,7 +28,7 @@ function ScoreDots({ score }) {
   )
 }
 
-export default function AttractionCard({ name, type, area, score, duration, review, price, reels }) {
+export default function AttractionCard({ name, type, area, score, duration, review, price, reels, osakaPass }) {
   return (
     <div className="rounded-2xl bg-white p-4 ring-1 ring-[#b8d2df] shadow-sm">
       {/* 頂部：名稱 + 類型標籤 */}
@@ -37,9 +37,17 @@ export default function AttractionCard({ name, type, area, score, duration, revi
           <h3 className="text-base font-semibold text-slate-800">{name}</h3>
           <ScoreDots score={score} />
         </div>
-        <span className="shrink-0 rounded-full bg-[#b8d2df]/30 px-2.5 py-1 text-xs font-medium text-[#5a8fa3] ring-1 ring-[#b8d2df]">
-          {type}
-        </span>
+        <div className="flex flex-col items-end gap-1.5 shrink-0">
+          <span className="rounded-full bg-[#b8d2df]/30 px-2.5 py-1 text-xs font-medium text-[#5a8fa3] ring-1 ring-[#b8d2df]">
+            {type}
+          </span>
+          {osakaPass && (
+            <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-600 ring-1 ring-emerald-200">
+              <Ticket className="h-3 w-3" />
+              周遊卡免費
+            </span>
+          )}
+        </div>
       </div>
 
       {/* 區域 + 停留時間 */}
