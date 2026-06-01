@@ -160,7 +160,7 @@ export default function OsakaPass() {
               alt="perper"
               className="h-20 w-20 rounded-full object-cover ring-2 ring-[#b8d2df]"
             />
-            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#5a8fa3]">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#c9a227]">
               <img src="/logorb.png" alt="logo" className="h-16 w-16 object-contain" />
             </div>
           </div>
