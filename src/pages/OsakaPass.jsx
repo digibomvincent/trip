@@ -123,9 +123,10 @@ export default function OsakaPass() {
 
   const isPerper = mode === 'perper'
   const passPrice = PASS_OPTIONS.find((p) => p.days === selectedDays)?.price ?? 4000
+  const transportFee = selectedDays === 1 ? 1000 : 2000
   const checkedSpots = SPOTS.filter((s) => checked[s.name])
   const totalOriginal = checkedSpots.reduce((sum, s) => sum + s.price, 0)
-  const savings = totalOriginal - passPrice
+  const savings = totalOriginal + transportFee - passPrice
 
   const toggle = (name) => {
     if (isPerper) return
@@ -271,10 +272,11 @@ export default function OsakaPass() {
                 {checkedSpots.length === 0 ? (
                   <p className="text-center text-sm text-slate-400">勾選景點開始試算 👇</p>
                 ) : (
-                  <div className="flex items-center justify-between gap-2">
+                  <div className="flex flex-col gap-1">
                     <div className="text-xs text-slate-500">
                       已勾 <span className="font-bold text-slate-700">{checkedSpots.length}</span> 項・
                       原價 <span className="font-bold text-slate-700">¥{totalOriginal.toLocaleString()}</span>
+                      ＋ 交通費 <span className="font-bold text-slate-700">¥{transportFee.toLocaleString()}</span>
                     </div>
                     <div className={`text-sm font-bold ${savings >= 0 ? 'text-emerald-600' : 'text-rose-500'}`}>
                       {savings >= 0
@@ -285,7 +287,7 @@ export default function OsakaPass() {
                 )}
               </div>
               <p className="mt-2 px-1 text-xs text-slate-400">
-                ※ 此價格僅計算景點票價，尚有期間鐵路公車免費和合作餐廳折扣，真的很划算！
+                ※ 此價格僅計算景點票價&交通費，尚有合作餐廳折扣，真的很划算！
               </p>
             </div>
 
