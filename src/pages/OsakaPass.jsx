@@ -17,8 +17,8 @@ import {
 // ─── Data ──────────────────────────────────────────────────────────────────
 
 const PASS_OPTIONS = [
-  { days: 1, price: 3000, label: '1 日券' },
-  { days: 2, price: 4000, label: '2 日券' },
+  { days: 1, price: 3445, label: '1 日券' },
+  { days: 2, price: 4920, label: '2 日券' },
 ]
 
 const SPOTS = [
@@ -285,7 +285,7 @@ export default function OsakaPass() {
                 )}
               </div>
               <p className="mt-2 px-1 text-xs text-slate-400">
-                ※ 此價格僅計算景點票價，還有期間鐵路公車免費和合作餐廳折扣，真的很划算！
+                ※ 此價格僅計算景點票價，尚有期間鐵路公車免費和合作餐廳折扣，真的很划算！
               </p>
             </div>
 
@@ -295,7 +295,7 @@ export default function OsakaPass() {
                 {isPerper ? (
                   <p className="text-xs text-slate-400">perper 實際玩的景點，僅供參考 🔒</p>
                 ) : (
-                  <p className="text-xs text-slate-400">勾選你想去的景點</p>
+                  <p className="text-xs text-slate-400">勾選你想去的景點（僅列出成人價）</p>
                 )}
                 {!isPerper && checkedSpots.length > 0 && (
                   <button
