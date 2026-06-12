@@ -85,6 +85,10 @@ const USEFUL_LINKS = [
     links: [
       { name: '大阪周遊卡', desc: '地鐵無限搭＋多景點免費入場', url: 'https://www.klook.com/zh-TW/activity/82312-amazing-pass-osaka/' },
       { name: '神戶觀光 SMART PASSPORT', desc: '神戶景點＋交通一卡搞定', url: 'https://www.feel-kobe.jp/tw/smartpass/' },
+      { name: '勝尾寺門票', desc: 'Klook 購票', url: 'https://s.klook.com/c/DwjD7W6P3q' },
+      { name: '大阪長居植物園 teamLab', desc: 'Botanical Garden Osaka 門票・Klook 購票', url: 'https://s.klook.com/c/93aQM7qYXa' },
+      { name: '阿倍野展望台 HARUKAS 300', desc: '門票・Klook 購票', url: 'https://s.klook.com/c/BXGWYKme3n' },
+      { name: '海遊館門票', desc: '官方售票網站', url: 'https://webket.jp/pc/member/index?fc=00290&ac=0000&lang=3' },
     ],
   },
 ]
