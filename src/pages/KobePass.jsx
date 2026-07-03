@@ -60,10 +60,10 @@ const SPOTS = [
   { name: '神戶海事博物館', price: 900, tier: 'premium' },
   { name: 'felissimo chocolate museum', price: 1000, tier: 'premium' },
   { name: '神戶動物王國', price: 2400, tier: 'premium' },
-  { name: '神戶天際浮舟（平日・附1杯飲料）', price: 1500, tier: 'premium' },
+  { name: '神戶天際浮舟（晚間附1杯飲料）', price: 1500, tier: 'premium' },
   { name: '神戶時尚美術館', price: 1000, tier: 'premium' },
   { name: '六甲有馬空中纜車（來回）', price: 1400, tier: 'premium' },
-  { name: '摩耶 View Line（摩耶纜車＋空中纜車來回）', price: 900, tier: 'premium' },
+  { name: '摩耶 View Line（摩耶纜車、摩耶空中纜車)(來回）', price: 900, tier: 'premium' },
   { name: 'ROKKO 森林之聲博物館', price: 1700, tier: 'premium' },
   { name: '六甲高山植物園', price: 900, tier: 'premium' },
   { name: '自然體感展望台　六甲枝垂', price: 1000, tier: 'premium' },
@@ -270,9 +270,9 @@ export default function KobePass() {
                   </div>
                 )}
               </div>
-              <p className="mt-2 px-1 text-xs text-slate-400">
+               {/* <p className="mt-2 px-1 text-xs text-slate-400">
                 ※ 此價格僅計算景點票價，另有合作餐廳折扣等優惠。
-              </p>
+              </p>*/}
             </div>
 
             {/* 景點清單 */}
